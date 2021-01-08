@@ -1,10 +1,10 @@
-import React from "react";
+import React,{useState} from "react";
 import "../css/home.css";
 import { useHistory } from "react-router-dom";
 import Modal from "./Modal";
 export default function Home() {
   let history = useHistory();
-
+  
   return (
     <React.Fragment>
       <div id="root">

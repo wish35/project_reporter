@@ -34,13 +34,13 @@ app.get('',(req,res) => {
 })
 
 
-
+//ambil berita berdasarkan id
 app.get('/:id',(req,res) => {
 
     pool.getConnection((err,connection)=> {
         if(err) throw err
         console.log(`connection as id: ${connection.threadId}`)
-        connection.query('SELECT * from akun WHERE id = ?',[req.params.id],(err,rows)=> {
+        connection.query('SELECT * from berita WHERE id = ?',[req.params.id],(err,rows)=> {
             connection.release()
             !err?res.send(rows): console.log(err)
     })
@@ -49,12 +49,14 @@ app.get('/:id',(req,res) => {
     })
 })
 
+
+//delete berita
 app.delete('/:id',(req,res) => {
 
     pool.getConnection((err,connection)=> {
         if(err) throw err
         console.log(`connection as id: ${connection.threadId}`)
-        connection.query('DELETE  from akun WHERE id = ?',[req.params.id],(err,rows)=> {
+        connection.query('DELETE  from berita WHERE id = ?',[req.params.id],(err,rows)=> {
             connection.release()
             !err?res.send(`account with record name ${req.params.username} has been deleted`): console.log(err)
     })
@@ -78,13 +80,30 @@ app.post('',(req,res) => {
     })
 })
 
+app.post('/login',(req,res) => {
+
+    pool.getConnection((err,connection)=> {
+        if(err) throw err
+        console.log(`connection as id: ${connection.threadId}`)
+        let {username,pass}=req.body
+        connection.query('SELECT * FROM akun WHERE username = ? AND pass = ?',[username,pass],(err,rows)=> {
+            connection.release()
+            !err?res.send(`login success`): res.send('login failed')
+    })
+
+            
+    })
+})
+
+
+
 app.put('',(req,res) => {
 
     pool.getConnection((err,connection)=> {
         if(err) throw err
         console.log(`connection as id: ${connection.threadId}`)
-        let {username,id}=req.body
-        connection.query('UPDATE akun SET username = ? WHERE id =  ?',[username,id],(err,rows)=> {
+        let {body,judul,id}=req.body
+        connection.query('UPDATE berita SET body = ? ,judul = ? WHERE id =  ?',[body,judul,id],(err,rows)=> {
             connection.release()
             !err?res.send(`account with record name ${username} has been changed`): console.log(err)
     })
