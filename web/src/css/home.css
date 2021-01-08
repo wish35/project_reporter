@@ -1,0 +1,28 @@
+.formblack {
+  background-color: grey;
+  margin-top: -15pt;
+  width: 80%;
+  height: 50px;
+}
+.title {
+  font-size: 30pt;
+  font-style: bold;
+}
+.listberita {
+  background-color: skyblue;
+  width: 70%;
+}
+.foto,
+.judul,
+.opt,
+.listberita {
+  float: left;
+}
+.foto {
+  width: 30%;
+  background-color: yellow;
+}
+.judul {
+  width: 50%;
+  background-color: pink;
+}
