@@ -15,7 +15,7 @@ export default function Signup() {
   return (
     <React.Fragment>
       <button style={{ color: "blue" }} onClick={() => history.push("/")}>
-        home
+       back to home
       </button>
       <h1>Register</h1>
       <form>
@@ -23,6 +23,8 @@ export default function Signup() {
         <input placeholder="password" /> <br />
         <input type="radio" id="reporter" name="role" onChange={onChange} />
         <label for="reporter">reporter</label>
+        <input type="radio" id="editor" name="role" onChange={onChange} />
+        <label for="reporter">editor</label>
       </form>
     </React.Fragment>
   );

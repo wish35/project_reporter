@@ -1,16 +1,30 @@
+::placeholder{
+  color: white;
+}
+.fl-r{
+  float: right;
+}
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 .formblack {
   background-color: grey;
-  margin-top: -15pt;
-  width: 80%;
-  height: 50px;
+  width: 100%;
+  height: 250px;
+  color: white;
 }
 .title {
   font-size: 30pt;
   font-style: bold;
+  font-style: italic;
 }
 .listberita {
-  background-color: skyblue;
-  width: 70%;
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 5px;
 }
 .foto,
 .judul,
@@ -20,9 +34,17 @@
 }
 .foto {
   width: 30%;
-  background-color: yellow;
+  margin-right: 2%;
+  font-weight: 600;
+  font-size: 18pt;
 }
 .judul {
   width: 50%;
-  background-color: pink;
+}
+.btncrt{
+  margin-left: 25%;
+  width: 50%;
+}
+.fontblack{
+  color: black;
 }
